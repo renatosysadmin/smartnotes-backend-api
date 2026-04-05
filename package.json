@@ -1,7 +1,7 @@
 {
   "name": "smartnotes-api",
   "version": "1.0.0",
-  "description": "API profissional para gerenciamento de notas pessoais com autenticação por sessão.",
+  "description": "API para gerenciamento de notas pessoais com autenticação por sessão.",
   "main": "dist/index.js",
   "engines": {
     "node": ">=18.0.0"
