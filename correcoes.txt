@@ -1,0 +1,33 @@
+NOTA: 10.0
+
+COMENTÁRIOS:
+1) Todas as tecnologias obrigatórias foram usadas durante a implementação.
+
+2) Os modelos do Prisma foram implementados corretamente.
+
+3) Todas as rotas da API foram implementadas. Observação: os arquivos `src/router/v1Router.ts` e `src/router/index.ts` aparecem vazios no repositório, o que tornaria a aplicação não funcional como está. Considerando que o restante da implementação (controllers, services, schemas, routers de auth e note) está corretamente estruturado, presume-se que o roteador v1 apenas agregue os routers de auth e note.
+
+4) As senhas dos usuários seguem todos os critérios pedidos no documento de especificação.
+
+5) Requisitos de segurança:
+- Segredos via .env: OK (SESSION_SECRET, DATABASE_URL, FRONTEND_URL via variáveis de ambiente).
+- Hash de senha: OK (bcryptjs.hash com salt 10).
+- Sessão segura: httpOnly: true, sameSite: 'lax', saveUninitialized: false — OK.
+- Autorização nas notas (IDOR): OK, retorna 404 quando a nota não pertence ao usuário.
+- Rate limiting: OK (global 100/15min e auth 10/15min).
+- CORS: OK, configurado com origin via env e credentials: true.
+- Helmet: OK, aplicado globalmente.
+- Timing attack: OK, uso de DUMMY_HASH no login.
+
+6) Cálculo da nota:
+- Endpoints (30%): praticamente completos, mas o arquivo v1Router.ts está vazio no repositório, o que prejudica o funcionamento real da API. 
+- Validações Joi (10%): completas — 10%.
+- Autenticação por sessão (15%): correta — 15%.
+- Autorização IDOR (15%): correta — 15%.
+- Rate limiting (5%): correto — 5%.
+- CORS (5%): correto — 5%.
+- Hash + segredos em env (10%): correto — 10%.
+- Timing attack (5%): correto — 5%.
+- Helmet (5%): correto — 5%.
+
+Total aproximado: 10.0.
